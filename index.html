@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Task</title>
+    <style>
+        #container {
+            display: flex;
+        }
+
+        #container>img {
+            width: 50px;
+            margin: 0px 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img src="emptystar.png" alt="">
+        <img src="emptystar.png" alt="">
+        <img src="emptystar.png" alt="">
+        <img src="emptystar.png" alt="">
+        <img src="emptystar.png" alt="">
+    </div>
+    <script>
+        let stars = document.querySelectorAll('img');
+        console.log(stars);
+
+        function starsFun(star, index) {
+            for (let i = 0; i < stars.length; i++) {
+                if (i <= index) {
+                    stars[i].src = "star.png";
+                } else {
+                    stars[i].src = "emptystar.png";
+                }
+            }
+        }
+
+        stars.forEach((star, index) => {
+            // star.addEventListener('click', () => {
+            //     starsFun(star, index)
+            // });
+            star.addEventListener('mouseover', () => {
+                starsFun(star, index)
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

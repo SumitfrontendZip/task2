@@ -40,12 +40,15 @@
             }
         }
 
+        let mouseoverworking = true
+
         stars.forEach((star, index) => {
             star.addEventListener('click', () => {
                 starsFun(star, index)
+                mouseoverworking = false
             });
             star.addEventListener('mouseover', () => {
-                starsFun(star, index)
+                if (mouseoverworking) starsFun(star, index)
             });
 
         });

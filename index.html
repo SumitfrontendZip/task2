@@ -28,11 +28,10 @@
     </div>
     <script>
         let stars = document.querySelectorAll('img');
-        console.log(stars);
 
         function updateStars(index) {
             for (let i = 0; i < stars.length; i++) {
-                if (i <= index && index != -1) {
+                if (i <= index && index !== -1) {
                     stars[i].src = "star.png";
                 } else {
                     stars[i].src = "emptystar.png";
@@ -40,19 +39,19 @@
             }
         }
 
-        let mouseoverworking = true
-
+        let clickedIndex = -1
         stars.forEach((star, index) => {
             star.addEventListener('click', () => {
-                updateStars(index)
+                clickedIndex = index
+                updateStars(clickedIndex)
             });
             star.addEventListener('mouseover', () => {
-                updateStars(index)
+                updateStars(index);
             });
             star.addEventListener('mouseout', () => {
-                updateStars(-1)
+                updateStars(-1);
+                updateStars(clickedIndex);
             });
-
         });
 
     </script>
